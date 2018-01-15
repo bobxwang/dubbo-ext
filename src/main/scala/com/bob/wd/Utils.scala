@@ -1,44 +1,66 @@
-package com.bob.wd.consumer
+package com.bob.wd
+
+import javassist.bytecode.LocalVariableAttribute
+
+import org.objenesis.ObjenesisHelper
 
 /**
   * Created by wangxiang on 17/12/13.
   */
 object Utils {
 
-  import javassist.{ClassPool, CtClass, CtField}
+  import java.util.Map
+  import javassist._
 
   import collection.JavaConverters._
-  import javassist.CtNewMethod
-  import java.util.Map
-  import javassist.{Modifier, NotFoundException}
   import scala.collection.mutable
 
   private val pool: ClassPool = ClassPool.getDefault
+
+  /**
+    * 获得方法参数名称
+    *
+    * @param clasz
+    * @param method
+    * @return
+    */
+  def getMethodParamNames(clasz: Class[_], method: String): List[String] = {
+    val cc = pool.get(clasz.getName)
+    val cm = cc.getDeclaredMethod(method)
+    val mi = cm.getMethodInfo
+    val ca = mi.getCodeAttribute()
+    val attr = ca.getAttribute(LocalVariableAttribute.tag).asInstanceOf[LocalVariableAttribute]
+    if (attr == null) {
+      List()
+    } else {
+      val pos = if (Modifier.isStatic(cm.getModifiers)) 0 else 1
+      (0 to cm.getParameterTypes.length - 1).map(x => attr.variableName(x + pos)).toList
+    }
+  }
 
   /**
     * 将Map转成Class, Map的Key即为Class的属性, Key对应的Value不可为空, 因为需要获得属性类型
     *
     * @param claszName
     * @param map
+    * @param isSetValue
     * @return
     */
-  def make(claszName: String, map: java.util.Map[String, Object]): Any = {
+  def make(claszName: String, map: java.util.Map[String, Object], isSetValue: Boolean = false): Any = {
 
     val ms = map.entrySet().asScala
+
     var clasz: CtClass = pool.getOrNull(claszName)
     if (clasz == null) {
       clasz = pool.makeClass(claszName)
       generateClass(clasz, ms)
       clasz.toClass()
-      clasz.getDeclaredFields.foreach(x => println(s"${Console.RED} ${x.getName} ${Console.RESET}"))
     } else {
       //      clasz.defrost()
       //      generateClass(clasz, ms)
-      //      clasz.getDeclaredFields.foreach(x => println(s"${Console.BLUE} ${x.getName} ${Console.RESET}"))
     }
 
-    val c = Class.forName(claszName)
-    val o = c.newInstance()
+    val o = ObjenesisHelper.newInstance(Class.forName(claszName))
     ms.foreach(x => {
       if (!x.getKey.contentEquals("class")) {
         this.setFieldValue(o, x.getKey, x.getValue)
