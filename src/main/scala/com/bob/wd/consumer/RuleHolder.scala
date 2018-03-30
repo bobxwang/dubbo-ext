@@ -29,7 +29,7 @@ object RuleHolder {
   def generateKey(uniqueServiceDef: UniqueServiceDef) = {
 
     if (uniqueServiceDef.getInterfaceName.isNullOrEmpty) throw new IllegalArgumentException("interfacename is not allowd empty or null")
-    if (uniqueServiceDef.getMethod.isNullOrEmpty) throw new IllegalArgumentException("interfacename is not allowd empty or null")
+    if (uniqueServiceDef.getMethod.isNullOrEmpty) throw new IllegalArgumentException("methodname is not allowd empty or null")
 
     val v = if (uniqueServiceDef.getVersion.isNullOrEmpty) "v" else uniqueServiceDef.getVersion
     val g = if (uniqueServiceDef.getGroup.isNullOrEmpty) "g" else uniqueServiceDef.getGroup

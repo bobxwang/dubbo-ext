@@ -9,7 +9,16 @@
 
 #### 消费一个服务
 
-* classpath下存在接口鍥约
+- classpath下存在接口鍥约
     * DubboProxy
-* classpath下不存在接口鍥约
+- classpath下不存在接口鍥约
     * DubboConsumer
+    
+#### 如何组装RuleHolder
+
+- key 组装
+> 默认以 dubbo 接口名(包括包名),方法名,group,version是个来生成 key, 具体可以参数 RuleHolder#generateKey 这个方法
+
+#### 使用场景
+- 网关
+    * 将http请求转成一个具体的 UniqueServiceDef 类实例, 其请求数据变成一个 key-value 的 map 进行调用 
