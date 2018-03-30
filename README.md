@@ -21,4 +21,4 @@
 
 #### 使用场景
 - 网关
-    * 将http请求转成一个具体的 UniqueServiceDef 类实例, 其请求数据变成一个 key-value 的 map 进行调用 
+    * 将http请求转成一个具体的 UniqueServiceDef 类实例, 其请求数据的json字符串通过 Objectex#convertJson2Map方法变成一个 map, 然后通过 DubboConsumer#invoke 调用 
