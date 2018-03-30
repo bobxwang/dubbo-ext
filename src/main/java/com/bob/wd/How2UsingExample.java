@@ -14,7 +14,7 @@ import java.util.Set;
 public class How2UsingExample {
 
     private Map<String, Object> params = new HashMap<>();
-    private DubboConsumerConfig dubboConsumerConfig = new DubboConsumerConfig("bob.dubbo.cp.test", "zookeeper", "zk.wd.com:2181", 2500);
+    private DubboConsumerConfig dubboConsumerConfig = new DubboConsumerConfig("bob.dubbo.cp.test", "zookeeper", "ip:port", 2500);
     private DubboConsumer dubboConsumer = new DubboConsumer(dubboConsumerConfig);
 
     static {

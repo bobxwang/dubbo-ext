@@ -5,7 +5,7 @@
 #### 发布一个服务
 
 * DubboProvider
-* 利用dubbo的SPI机制在发布时可以将此信息额外上传到某个地方,然后这地方组装返回数据可以装载到RuleHolder中,现在只是简单打印
+* 利用dubbo的SPI机制在发布时可以将此信息额外上传到某个地方,然后这地方组装返回数据再装载到RuleHolder中,现在只是简单打印,现在**APrintExporterListener**只是简单的打印出接口信息
 
 #### 消费一个服务
 
