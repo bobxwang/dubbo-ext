@@ -24,7 +24,7 @@ public class How2UsingExample {
         System.out.println("             ------------------------------------             ");
 
         UniqueServiceDef temp = new UniqueServiceDef();
-        temp.setInterfaceName("com.weidai.sso.client.api.MobileLoginFacade");
+        temp.setInterfaceName("com.**.sso.client.api.MobileLoginFacade");
         temp.setMethod("getKey");
         temp.setInputEnum("username");
         temp.setParamType("String");
@@ -36,7 +36,7 @@ public class How2UsingExample {
 
     public void testParamIsDto() {
 
-        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.weidai.sso.client.api.SalesTeamFacade-addWithGroup-2.0-g");
+        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.**.sso.client.api.SalesTeamFacade-addWithGroup-2.0-g");
         params.clear();
         if (uniqueServiceDef != null) {
             params.put("teamName", "abcd");
@@ -49,7 +49,7 @@ public class How2UsingExample {
 
     public void testParamIsNotDtoAndMoreParam() {
 
-        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.weidai.sso.client.api.SalesTeamFacade-updateNameAndLeader-2.0-g");
+        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.**.sso.client.api.SalesTeamFacade-updateNameAndLeader-2.0-g");
         params.clear();
         params.put("salesTeamId", 1l);
         params.put("newTeamName", "abcd");
@@ -60,7 +60,7 @@ public class How2UsingExample {
     }
 
     public void testParamIsNotDtoButOneParam() {
-        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.weidai.sso.client.api.UserFacade-getUserById-2.0-g");
+        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.**.sso.client.api.UserFacade-getUserById-2.0-g");
         params.clear();
         params.put("userId", 23l);
         Object obj = dubboConsumer.invoke(uniqueServiceDef, params);
@@ -69,7 +69,7 @@ public class How2UsingExample {
 
     public void testParamIsNotDtoButIsOneArray() {
 
-        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.weidai.sso.client.api.UserFacade-getUsersByIds-2.0-g");
+        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.**.sso.client.api.UserFacade-getUsersByIds-2.0-g");
         params.clear();
         params.put("userIds", new Long[]{1l, 2l, 41l});
         Object obj = dubboConsumer.invoke(uniqueServiceDef, params);
@@ -77,7 +77,7 @@ public class How2UsingExample {
     }
 
     public void testParamIsNotDtoOthers() {
-        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.weidai.sso.client.api.SalesmanFacade-configWithTeam-2.0-g");
+        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.**.sso.client.api.SalesmanFacade-configWithTeam-2.0-g");
         params.clear();
         params.put("teamId", 12l);
         Set<Long> s = new HashSet<>();
@@ -89,7 +89,7 @@ public class How2UsingExample {
     }
 
     public void testTempAdd() {
-        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.weidai.sso.client.api.MobileLoginFacade-getKey-2.0-g");
+        UniqueServiceDef uniqueServiceDef = RuleHolder.find("com.**.sso.client.api.MobileLoginFacade-getKey-2.0-g");
         params.clear();
         params.put("username", "abcd");
         Object obj = dubboConsumer.invoke(uniqueServiceDef, params);

@@ -1,44 +1,44 @@
 [
   {
-    "interfaceName": "com.weidai.sso.client.api.SalesTeamFacade",
+    "interfaceName": "com.**.sso.client.api.SalesTeamFacade",
     "method": "addWithGroup",
-    "inputDto": "com.weidai.sso.client.model.SalesTeamInfo",
+    "inputDto": "com.**.sso.client.model.SalesTeamInfo",
     "dtoProperty": "teamName,fromGroupId,fromGroupName",
     "paramType": "String,Long,String",
     "version": "2.0"
   },
   {
-    "interfaceName": "com.weidai.sso.client.api.SalesTeamFacade",
+    "interfaceName": "com.**.sso.client.api.SalesTeamFacade",
     "method": "updateNameAndLeader",
     "inputEnum": "salesTeamId,newTeamName,ssoUserIdOfLeader",
     "paramType": "Long,String,Long",
     "version": "2.0"
   },
   {
-    "interfaceName": "com.weidai.sso.client.api.UserFacade",
+    "interfaceName": "com.**.sso.client.api.UserFacade",
     "method": "getUserById",
     "inputEnum": "userId",
     "paramType": "long",
     "version": "2.0"
   },
   {
-    "interfaceName": "com.weidai.sso.client.api.UserFacade",
+    "interfaceName": "com.**.sso.client.api.UserFacade",
     "method": "getUsersByIds",
     "inputEnum": "userIds",
     "paramType": "Long[]",
     "version": "2.0"
   },
   {
-    "interfaceName": "com.weidai.sso.client.api.SalesmanFacade",
+    "interfaceName": "com.**.sso.client.api.SalesmanFacade",
     "method": "configWithTeam",
     "version": "2.0",
     "inputEnum": "ssoUserIds,teamId",
     "paramType": "java.util.Set[Long],Long"
   },
   {
-    "interfaceName": "com.weidai.collection.facade.api.penalty.PenaltyFacade",
+    "interfaceName": "com.**.collection.facade.api.penalty.PenaltyFacade",
     "method": "calculatePenalty",
-    "inputDto": "com.weidai.collection.facade.model.request.PenaltyReq",
+    "inputDto": "com.**.collection.facade.model.request.PenaltyReq",
     "dtoProperty": "loanNo,periodNum,overdueDays,penaltyInterest,needMoney,productType",
     "paramType": "String,Integer,Integer,java.math.BigDecimal,java.math.BigDecimal,Integer"
   }
