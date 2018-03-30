@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.bob.wd.dubbo</groupId>
-    <artifactId>bob-dubbo-ext</artifactId>
+    <artifactId>dubbo-ext</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>bob-dubbo-ext</name>
-    <description>bob-dubbo-ext</description>
+    <name>dubbo-ext</name>
+    <description>dubbo-ext</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
