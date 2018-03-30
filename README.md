@@ -1,6 +1,6 @@
 > 让你在消费dubbo服务或者发布dubbo服务时可以脱离spring环境,同时也可以在无服务接口时进行消费,具体可参照**How2UsingExample**这个类
 
-> 部分代码采用**scala**编写, 需要具备**scala**的一些知识, 没用到特别复杂的
+> 部分代码采用**scala**编写, 需要具备**scala**的一些知识, 没用到特别复杂的, 使用此包时需要有 scala-library 包在 classpath 下面
 
 #### 发布一个服务
 
