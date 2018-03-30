@@ -14,12 +14,12 @@ class DubboProvider(dubboProviderConfig: DubboProviderConfig) {
   import com.alibaba.dubbo.config.{ApplicationConfig, ProtocolConfig, RegistryConfig, ServiceConfig}
 
   private val applicationConfig: ApplicationConfig = new ApplicationConfig
-  applicationConfig.setName(dubboProviderConfig.dc.appName)
+  applicationConfig.setName(dubboProviderConfig.dcc.appName)
 
   private val registryConfig: RegistryConfig = new RegistryConfig
-  registryConfig.setAddress(dubboProviderConfig.dc.address)
-  registryConfig.setProtocol(dubboProviderConfig.dc.protocol)
-  registryConfig.setTimeout(dubboProviderConfig.dc.timeout)
+  registryConfig.setAddress(dubboProviderConfig.dcc.address)
+  registryConfig.setProtocol(dubboProviderConfig.dcc.protocol)
+  registryConfig.setTimeout(dubboProviderConfig.dcc.timeout)
 
   private val protocolConfig = new ProtocolConfig
   protocolConfig.setName(dubboProviderConfig.name)

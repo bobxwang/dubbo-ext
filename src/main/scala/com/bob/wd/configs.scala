@@ -9,7 +9,7 @@ package com.bob.wd
   */
 case class DubboConsumerConfig(appName: String, protocol: String, address: String, timeout: Int)
 
-case class DubboProviderConfig(dc: DubboConsumerConfig, threads: Int, name: String, port:Int)
+case class DubboProviderConfig(dcc: DubboConsumerConfig, threads: Int, name: String, port:Int)
 
 class ConfigException(message: String) extends RuntimeException(message)
 
